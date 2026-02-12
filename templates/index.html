@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>timetable</title>
+    <script src="https://cdn.jsdelivr.net/npm/htmx.org@2.0.8/dist/htmx.min.js"></script>
+    <link rel="stylesheet" href="/static/app.css">
+</head>
+
+<body>
+
+    <main>
+        <input type="text" id="token" placeholder="Enter Toggl token">
+        <button hx-get="/table" hx-target="#table" hx-swap="innerHTML"
+            hx-headers='js:{"X-Toggl-Token": document.getElementById("token").value}'>
+            click me
+        </button>
+        <!-- <button hx-get="/table" hx-target="#table" hx-swap="innerHTML">click me</button> -->
+        <div id="table">Your Go web server is running!</div>
+    </main>
+
+</body>
+
+</html>
