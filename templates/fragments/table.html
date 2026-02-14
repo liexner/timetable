@@ -1,18 +1,19 @@
-<table>
+<table class="timetable-table">
     <thead>
         <tr>
-            <th>Project</th>
+            <th class="table-head-text">Project</th>
             {{range .Dates}}
-            <th>{{.Format "Jan 02"}}</th>
+            <th class="table-head-text">{{.Format "Jan 02"}}</th>
+            
             {{end}}
         </tr>
     </thead>
     <tbody>
         {{range .Rows}}
         <tr>
-            <td style="background-color: {{.Color}}">{{.ProjectName}}</td>
+            <td style="background: rgba({{.Color}}, 0.3)">{{.ProjectName}}</td>
             {{range .Cells}}
-            <td{{if not .IsWeekday}} style="color: red;"{{end}}>{{.Hours}}</td>
+            <td {{if not .IsWeekday}} style="color: red;"{{end}}>{{.Hours}}</td>
             {{end}}
         </tr>
         {{end}}

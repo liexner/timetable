@@ -4,23 +4,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>timetable</title>
+    <title>Timetable</title>
     <script src="https://cdn.jsdelivr.net/npm/htmx.org@2.0.8/dist/htmx.min.js"></script>
-    <link rel="stylesheet" href="/static/app.css">
+    <link rel="stylesheet" href="/static/css/app.css">
+    <link rel="stylesheet" href="/static/css/table.css">
+    <link rel="icon" href="/static/images/favicon.ico">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
 </head>
 
 <body>
-
-    <main>
-        <input type="text" id="token" placeholder="Enter Toggl token">
-        <button hx-get="/table" hx-target="#table" hx-swap="innerHTML"
-            hx-headers='js:{"X-Toggl-Token": document.getElementById("token").value}'>
-            click me
-        </button>
+    <main class="main-wrapper">
+        <div class="logo-wrapper">
+            <img class="logo-img" src="/static/images/Timetable-logo.png"/>
+            <h1 class="timetable-title">TimeTable</h1>
+        </div>
+        <div class="token-wrapper">
+            <input type="text" id="token"  class="token-input" placeholder="Enter Toggl token">
+            <button class="load-table-btn" hx-get="/table" hx-target="#table" hx-swap="innerHTML"
+                hx-headers='js:{"X-Toggl-Token": document.getElementById("token").value}'>
+                Load timetable
+            </button>
+        </div>
         <!-- <button hx-get="/table" hx-target="#table" hx-swap="innerHTML">click me</button> -->
-        <div id="table">Your Go web server is running!</div>
+        <div id="table" class="server-status">Your Go web server is running!</div>
     </main>
-
 </body>
 
 </html>

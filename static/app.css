@@ -1,9 +1,0 @@
-body {
-    display: grid;
-    background: black;
-    color:white;
-    place-items: center;
-    padding: 0;
-    margin: 0;
-    height: 100dvh;
-}
