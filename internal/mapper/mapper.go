@@ -3,6 +3,7 @@ package mapper
 import (
 	"time"
 	"timetable/internal/types"
+	"timetable/internal/utils"
 )
 
 func BuildTimeTable(time_entries []types.TimeEntry, projects []types.Project) types.TimeTable {
@@ -23,7 +24,11 @@ func BuildTimeTable(time_entries []types.TimeEntry, projects []types.Project) ty
 		if row.ProjectName == "" {
 			if p, ok := projectMap[entry.ProjectID]; ok {
 				row.ProjectName = p.Name
-				row.Color = p.Color
+				// row.Color = p.Color
+				if rgb, err := utils.HexToRGB(p.Color); err == nil {
+					row.Color = rgb
+				}
+
 			}
 		}
 

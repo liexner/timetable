@@ -1,0 +1,117 @@
+body {
+    display: grid;
+    height: 100dvh;
+    margin: 0;
+    padding: 0;
+    font-family: "Inter", sans-serif;
+    font-size: 14px;
+    color:white;
+    background: #1d1d1d;
+    place-items: center;
+}
+
+.main-wrapper {
+    width: 100%;
+    max-width: 1280px;
+    margin: auto;
+    padding: 1rem;
+}
+
+.logo-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.logo-img {
+    width: 100px;
+    height: auto;
+}
+
+.timetable-title {
+    margin: 0;
+    font-weight: bold;
+    font-size: 48px;
+    color: transparent;
+    background: linear-gradient(to right, #24608a, #f08c2d);
+    -webkit-background-clip: text;
+    background-clip: text;
+    letter-spacing: 3px;
+}
+
+.token-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    width: 100%;
+    max-width: 600px;
+    margin: auto;
+}
+
+.token-input {
+    flex: 1;
+    min-width: 0;
+    padding: 0.75rem 1rem;
+    font-family: "Inter", sans-serif;
+    font-size: 14px;
+    border: 1px solid #5d5d5d;
+    border-radius: 4px;
+    color: #fff;
+    background: transparent;
+}
+
+.token-input:focus-visible,
+.load-table-btn:focus-visible {
+    outline: none;
+    border: 1px solid #fff;
+}
+
+.load-table-btn {
+    white-space: nowrap;
+    padding: 0.75rem 1rem;
+    border: 1px solid #5d5d5d;
+    border-radius: 4px;
+    font-family: "Inter", sans-serif;
+    font-size: 14px;
+    color: #fff;
+    background: transparent;
+    cursor: pointer;
+}
+
+.load-table-btn:hover {
+    border-color: #24608a;
+    animation: glow 1.5s ease-in-out infinite;
+}
+
+@keyframes glow {
+    0% {
+        box-shadow: 0 0 4px rgba(36, 96, 138, 0.4);
+    }
+    50% {
+        box-shadow: 
+            0 0 10px rgba(36, 96, 138, 0.8),
+            0 0 20px rgba(36, 96, 138, 0.6);
+    }
+    100% {
+        box-shadow: 0 0 4px rgba(36, 96, 138, 0.4);
+    }
+}
+
+.server-status {
+    margin: auto;
+    padding-top: 1rem;
+    text-align: center;
+}
+
+@media (max-width: 600px) {
+    .token-wrapper {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .load-table-btn {
+        width: 100%;
+    }
+}
