@@ -61,6 +61,19 @@ func (r *TimeTableRow) GetCell(date time.Time) *TimeTableCell {
 
 }
 
+func (t TimeTable) DailyTotals() []*TimeTableCell {
+	totals := make([]*TimeTableCell, len(t.Dates))
+	for i, d := range t.Dates {
+		totals[i] = &TimeTableCell{Date: d}
+	}
+	for _, row := range t.Rows {
+		for i, cell := range row.Cells {
+			totals[i].TotalTime += cell.TotalTime
+		}
+	}
+	return totals
+}
+
 type TimeTableCell struct {
 	Date      time.Time
 	TotalTime int //seconds

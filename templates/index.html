@@ -19,17 +19,17 @@
     <main class="main-wrapper">
         <div class="logo-wrapper">
             <img class="logo-img" src="/static/images/Timetable-logo.png"/>
-            <h1 class="timetable-title">TimeTable</h1>
+            <h1 class="timetable-title">timetable</h1>
         </div>
         <div class="token-wrapper">
-            <input type="text" id="token"  class="token-input" placeholder="Enter Toggl token">
+            <input type="password" id="token"  class="token-input" placeholder="Enter Toggl token">
             <button class="load-table-btn" hx-get="/table" hx-target="#table" hx-swap="innerHTML"
                 hx-headers='js:{"X-Toggl-Token": document.getElementById("token").value}'>
-                Load timetable
+                Load entries
             </button>
         </div>
         <!-- <button hx-get="/table" hx-target="#table" hx-swap="innerHTML">click me</button> -->
-        <div id="table" class="server-status">Your Go web server is running!</div>
+        <div id="table" class="server-status"></div>
     </main>
 </body>
 
