@@ -4,16 +4,18 @@
             <th class="table-head-text">Project</th>
             {{range .Dates}}
             <th class="table-head-text">{{.Format "01/02"}}</th>
-            
+
             {{end}}
         </tr>
     </thead>
     <tbody>
         {{range .Rows}}
         <tr>
+            <!-- <td style="background: rgba({{.Color}}, 0.3)">{{.ProjectName}}</td> -->
             <td style="background: rgba({{.Color}}, 0.3)">{{.ProjectName}}</td>
+
             {{range .Cells}}
-            <td  {{if not .IsWeekday}} style="color: red;"{{end}}>{{.Hours}}</td>
+            <td {{if not .IsWeekday}}class="weekend"{{end}} >{{.Hours}}</td>
             {{end}}
         </tr>
         {{end}}
@@ -22,7 +24,7 @@
         <tr>
             <td>Total</td>
             {{range .DailyTotals}}
-            <td {{if not .IsWeekday}} style="color: red;"{{end}}>{{.Hours}}</td>
+            <td {{if not .IsWeekday}} style="color: red;" {{end}}>{{.Hours}}</td>
             {{end}}
         </tr>
     </tfoot>

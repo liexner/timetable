@@ -12,24 +12,24 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+        rel="stylesheet">
 </head>
 
 <body>
     <main class="main-wrapper">
         <div class="logo-wrapper">
-            <img class="logo-img" src="/static/images/Timetable-logo.png"/>
+            <img class="logo-img" src="/static/images/Timetable-logo.png" />
             <h1 class="timetable-title">timetable</h1>
         </div>
         <div class="token-wrapper">
-            <input type="password" id="token"  class="token-input" placeholder="Enter Toggl token">
-            <button class="load-table-btn" hx-get="/table" hx-target="#table" hx-swap="innerHTML"
-                hx-headers='js:{"X-Toggl-Token": document.getElementById("token").value}'>
-                Load entries
-            </button>
+            <form hx-post="/table" hx-target="#table" hx-swap="innerHTML">
+                <input type="password" name="token" class="token-input" placeholder="Enter Toggl token">
+                <button class="load-table-btn" type="submit">Load entries</button>
+            </form>
         </div>
-        <!-- <button hx-get="/table" hx-target="#table" hx-swap="innerHTML">click me</button> -->
-        <div id="table" class="server-status"></div>
+        <div id="table"></div>
     </main>
 </body>
 

@@ -15,7 +15,7 @@ func main() {
 	fs := http.FileServer(http.Dir("static"))
 	mux.Handle("/static/", http.StripPrefix("/static/", fs))
 
-	mux.HandleFunc("GET /table", handlers.HandleGetTable)
+	mux.HandleFunc("POST /table", handlers.HandleGetTable)
 
 	mux.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 		if r.URL.Path != "/" {

@@ -12,7 +12,8 @@ import (
 var tableTemplate = template.Must(template.ParseFiles("templates/fragments/table.html"))
 
 func HandleGetTable(w http.ResponseWriter, r *http.Request) {
-	token := r.Header.Get("X-Toggl-Token")
+
+token := r.FormValue("token")
 	if token == "" {
 		http.Error(w, "missing X-Toggl-Token header", http.StatusBadRequest)
 		return
@@ -42,7 +43,6 @@ func HandleGetTable(w http.ResponseWriter, r *http.Request) {
 		log.Printf("error executing template: %v", err)
 		http.Error(w, "failed to render template", http.StatusInternalServerError)
 	}
-	// w.Header().Set("Content-Type", "application/json")
-	// json.NewEncoder(w).Encode(table)
+
 
 }
